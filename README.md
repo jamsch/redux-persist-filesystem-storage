@@ -8,32 +8,34 @@ Storage adaptor to use [react-native-fetch-blob](https://github.com/wkh237/react
 This storage can be used on Android to prevent issues with the storage limitations in the RN AsyncStorage implementation. (See [redux-persist#199](https://github.com/rt2zz/redux-persist/issues/199), [redux-persist#284](https://github.com/rt2zz/redux-persist/issues/284))
 
 ## install
+
 ```bash
 yarn add redux-persist-filesystem-storage
 ```
 
 Then, as [react-native-fetch-blob](https://github.com/wkh237/react-native-fetch-blob) is a dependency of this project, we need to ensure its linked with
+
 ```
 react-native link react-native-fetch-blob
 ```
+
 (or check [their docs](https://github.com/wkh237/react-native-fetch-blob#user-content-installation)).
 
 ## usage
+
 ```javascript
-import FilesystemStorage from 'redux-persist-filesystem-storage'
-import { persistStore, autoRehydrate } from 'redux-persist'
+import FilesystemStorage from "redux-persist-filesystem-storage";
+import { persistStore, autoRehydrate } from "redux-persist";
 
-const store = createStore(reducer, undefined, autoRehydrate())
+const store = createStore(reducer, undefined, autoRehydrate());
 
-persistStore(
-  store,
-  {
-    storage: FilesystemStorage,
-  },
-)
+persistStore(store, {
+  storage: FilesystemStorage
+});
 ```
 
 ## usage with custom options
+
 ```javascript
 import RNFetchBlob from 'react-native-fetch-blob'
 import FilesystemStorage from 'redux-persist-filesystem-storage'

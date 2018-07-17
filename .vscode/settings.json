@@ -1,0 +1,8 @@
+{
+  "javascript.validate.enable": false,
+  "flow.useNPMPackagedFlow": true,
+  "prettier.parser": "flow",
+  "prettier.singleQuote": true,
+  "prettier.eslintIntegration": true,
+  "prettier.printWidth": 100
+}
