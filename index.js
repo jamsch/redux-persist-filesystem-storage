@@ -1,11 +1,11 @@
 // @flow
-import RNFetchBlob from 'react-native-fetch-blob';
+import RNFetchBlob from 'rn-fetch-blob';
 
 let options = {
   storagePath: `${RNFetchBlob.fs.dirs.DocumentDir}/persistStore`,
   encoding: 'utf8',
   toFileName: (name: string) => name.split(':').join('-'),
-  fromFileName: (name: string) => name.split('-').join(':')
+  fromFileName: (name: string) => name.split('-').join(':'),
 };
 
 const pathForKey = (key: string) => `${options.storagePath}/${options.toFileName(key)}`;
@@ -14,7 +14,7 @@ class FilesystemStorage {
   static config = (customOptions: {}) => {
     options = {
       ...options,
-      ...customOptions
+      ...customOptions,
     };
   };
 
@@ -49,7 +49,7 @@ class FilesystemStorage {
     const keys = await FilesystemStorage.getAllKeys();
 
     if (Array.isArray(keys) && keys.length) {
-      keys.forEach(key => {
+      keys.forEach((key) => {
         FilesystemStorage.removeItem(key);
       });
       return true;
